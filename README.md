@@ -1,4 +1,4 @@
-# Whatomail
+# Whatomail (Android)
 
 O aplicativo tem por objetivo ler mensagens do whatsapp e enviar para o sistema de ticket FreshDesk através do seguinte processo:
 
