@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Whatomail</string>
+    <string name="btn_send">Enviar Agora</string>
+    <string name="btn_send_freshdesk">Enviar</string>
+    <string name="btn_veterinary">Veterinárias</string>
+    <string name="btn_answer">Responder</string>
+
+    <string name="cancel">Cancelar</string>
+    <string name="ok">OK</string>
+
+    <string name="nao">Não</string>
+    <string name="sim">Sim</string>
+    <!-- Titles toolbar -->
+    <string name="toolbar_title_answer_pending">Pendentes</string>
+    <string name="toolbar_title_answer_sent">Enviadas</string>
+    <string name="toolbar_title_veterinary">Veterinárias</string>
+    <string name="toolbar_title_add_veterinary">Novo Veterinário</string>
+
+    <string name="action_add">Adicionar</string>
+    <string name="action_view_all">Todas</string>
+
+    <string name="numero_ticket">#Ticket</string>
+    <string name="arquivo_name">Nome do Arquivo:</string>
+    <string name="check_novo_ticket">Criar Novo Ticket</string>
+    <string name="mensagem_ticket">Mensagem:</string>
+    <string name="nome_cliente">Nome do Cliente:</string>
+    <string name="telefone_cliente">Telefone do Cliente (com DDD):</string>
+
+    <string name="veterinary_ddd">DDD</string>
+    <string name="veterinary_phone">Telefone</string>
+    <string name="veterinary_name">Nome</string>
+    <string name="btn_add">Adicionar</string>
+
+    <string name="list_veterinary_phone">Telefone: </string>
+    <string name="list_veterinary_name">Nome: </string>
+
+    <string name="list_answer_dthrSent">Enviado em: </string>
+    <string name="list_answer_dthrReceived">Recebido em: </string>
+    <string name="list_answer_text">Mensagem: </string>
+    <string name="list_answer_cliente">Cliente: </string>
+    <string name="list_answer_ticket">Ticket: </string>
+</resources>
