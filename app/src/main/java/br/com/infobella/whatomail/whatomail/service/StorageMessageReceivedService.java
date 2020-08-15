@@ -139,7 +139,7 @@ public class StorageMessageReceivedService extends IntentService {
                 if (Config.SEND_FRESHDESK) {
                     if (contact.getTicket() == null || setJid.contains(contact.getJidWhatsApp())){
                         try {
-                            Map<String, Object> map = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                            Map<String, Object> map = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                             LogUtils.writeLog(this, LogUtils.TAG_STORAGE, "Map: " + map);
                             int result = (Integer) map.get("result");
                             LogUtils.writeLog(this, LogUtils.TAG_STORAGE, "result: " + result);
@@ -168,7 +168,7 @@ public class StorageMessageReceivedService extends IntentService {
                                 boolean deleted = (Boolean) map.get("deleted");
                                 if (deleted){
                                     //Create new Ticket
-                                    Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                                    Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                                     int result2 = (Integer) map2.get("result");
                                     if (result2 == 200){
                                         messageReceived.setStatus(MessageReceived.Status.Sent);
@@ -188,7 +188,7 @@ public class StorageMessageReceivedService extends IntentService {
                                     Double status = (Double) map.get("status");
                                     if (status.intValue() == 4 || status.intValue() == 5){
                                         //Create new Ticket
-                                        Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                                        Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                                         int result2 = (Integer) map2.get("result");
                                         if (result2 == 200){
                                             messageReceived.setStatus(MessageReceived.Status.Sent);
@@ -215,7 +215,7 @@ public class StorageMessageReceivedService extends IntentService {
                                 }
                             } else {
                                 //Create new Ticket
-                                Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                                Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                                 int result2 = (Integer) map2.get("result");
                                 if (result2 == 200){
                                     messageReceived.setStatus(MessageReceived.Status.Sent);
@@ -281,7 +281,7 @@ public class StorageMessageReceivedService extends IntentService {
                 if (Config.SEND_FRESHDESK) {
                     if (contact.getTicket() == null || setJid.contains(contact.getJidWhatsApp())){
                         try {
-                            Map<String, Object> map = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                            Map<String, Object> map = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                             LogUtils.writeLog(this, LogUtils.TAG_STORAGE, "Map: " + map);
                             int result = (Integer) map.get("result");
                             LogUtils.writeLog(this, LogUtils.TAG_STORAGE, "result: " + result);
@@ -310,7 +310,7 @@ public class StorageMessageReceivedService extends IntentService {
                                 boolean deleted = (Boolean) map.get("deleted");
                                 if (deleted){
                                     //Create new Ticket
-                                    Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                                    Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                                     int result2 = (Integer) map2.get("result");
                                     if (result2 == 200){
                                         messageReceived.setStatus(MessageReceived.Status.Sent);
@@ -330,7 +330,7 @@ public class StorageMessageReceivedService extends IntentService {
                                     Double status = (Double) map.get("status");
                                     if (status.intValue() == 4 || status.intValue() == 5){
                                         //Create new Ticket
-                                        Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                                        Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                                         int result2 = (Integer) map2.get("result");
                                         if (result2 == 200){
                                             messageReceived.setStatus(MessageReceived.Status.Sent);
@@ -357,7 +357,7 @@ public class StorageMessageReceivedService extends IntentService {
                                 }
                             } else {
                                 //Create new Ticket
-                                Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files);
+                                Map<String, Object> map2 = TicketController.createTicketWithAttachments(contact, text, date.toString(), files, false);
                                 int result2 = (Integer) map2.get("result");
                                 if (result2 == 200){
                                     messageReceived.setStatus(MessageReceived.Status.Sent);

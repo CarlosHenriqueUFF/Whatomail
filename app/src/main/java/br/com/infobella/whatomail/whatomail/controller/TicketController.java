@@ -47,7 +47,7 @@ import cz.msebera.android.httpclient.impl.client.HttpClientBuilder;
 
 public class TicketController {
 
-    public static Map<String, Object> createTicketWithAttachments(Contact contact, String text, String dataHora, List<String> files) throws IOException, URISyntaxException {
+    public static Map<String, Object> createTicketWithAttachments(Contact contact, String text, String dataHora, List<String> files, boolean receitaControlada) throws IOException, URISyntaxException {
         final HttpClientBuilder hcBuilder = HttpClientBuilder.create();
         final RequestBuilder reqBuilder = RequestBuilder.post();
         final RequestConfig.Builder rcBuilder = RequestConfig.custom();
@@ -99,7 +99,11 @@ public class TicketController {
                 + "<br>";
 
         meb.addTextBody("helpdesk_ticket[email]", Config.VALUE_EMAIL_FROM);
-        meb.addTextBody("helpdesk_ticket[subject]", Config.VALUE_SUBJECT);
+        if (receitaControlada){
+            meb.addTextBody("helpdesk_ticket[subject]", Config.VALUE_SUBJECT_WITH_CONTROLADO);
+        } else {
+            meb.addTextBody("helpdesk_ticket[subject]", Config.VALUE_SUBJECT);
+        }
         meb.addTextBody("helpdesk_ticket[description_html]", htmlText);
         meb.addTextBody("helpdesk_ticket[priority]", "1");
         meb.addTextBody("helpdesk_ticket[status]", "2");

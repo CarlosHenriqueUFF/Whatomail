@@ -22,6 +22,7 @@
     <string name="numero_ticket">#Ticket</string>
     <string name="arquivo_name">Nome do Arquivo:</string>
     <string name="check_novo_ticket">Criar Novo Ticket</string>
+    <string name="check_receita_controlada">Receita Controlada</string>
     <string name="mensagem_ticket">Mensagem:</string>
     <string name="nome_cliente">Nome do Cliente:</string>
     <string name="telefone_cliente">Telefone do Cliente (com DDD):</string>

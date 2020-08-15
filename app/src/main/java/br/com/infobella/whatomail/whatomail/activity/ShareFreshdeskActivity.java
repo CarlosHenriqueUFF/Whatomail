@@ -41,6 +41,7 @@ public class ShareFreshdeskActivity extends BaseActivity implements View.OnClick
     private static String fileName;
     private ProgressDialog dialog;
     private boolean newTicket;
+    private boolean receitaControlada;
     private TextView textViewTicket;
     private EditText editTextTicket;
     private String msg;
@@ -59,6 +60,7 @@ public class ShareFreshdeskActivity extends BaseActivity implements View.OnClick
         LogUtils.writeLog(getActivity(), LogUtils.TAG_GERAL, "ShareFreshdeskActivity onCreate");
 
         newTicket = false;
+        receitaControlada = false;
 
         Button btn = (Button) findViewById(R.id.btn_freshdesk);
         btn.setOnClickListener(this);
@@ -75,6 +77,15 @@ public class ShareFreshdeskActivity extends BaseActivity implements View.OnClick
         textViewTelefoneCliente.setVisibility(View.GONE);
         editTextTelefoneCliente = (EditText) findViewById(R.id.telefone_cliente);
         editTextTelefoneCliente.setVisibility(View.GONE);
+
+        CheckBox checkBoxReceitaControlada = (CheckBox) findViewById(R.id.check_controlado);
+        checkBoxReceitaControlada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox checkBox = (CheckBox) v;
+                receitaControlada = checkBox.isChecked();
+            }
+        });
 
         CheckBox checkBox = (CheckBox) findViewById(R.id.check_ticket);
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -349,8 +360,8 @@ public class ShareFreshdeskActivity extends BaseActivity implements View.OnClick
         @Override
         protected Integer doInBackground(String... strings) {
             if (newTicket){
-                String nome = editTextNomeCliente.getText().toString();
-                String telefone = editTextTelefoneCliente.getText().toString();
+                @SuppressLint("WrongThread") String nome = editTextNomeCliente.getText().toString();
+                @SuppressLint("WrongThread") String telefone = editTextTelefoneCliente.getText().toString();
                 Contact contact = new Contact();
                 contact.setContactName(nome);
                 contact.setPhone(telefone);
@@ -362,7 +373,7 @@ public class ShareFreshdeskActivity extends BaseActivity implements View.OnClick
                         files = new ArrayList<>();
                         files.add(fileName);
                     }
-                    Map<String, Object> map = TicketController.createTicketWithAttachments(contact, msg, dateToString(new Date()), files);
+                    Map<String, Object> map = TicketController.createTicketWithAttachments(contact, msg, dateToString(new Date()), files, receitaControlada);
                     LogUtils.writeLog(getContext(), LogUtils.TAG_GERAL, "Map: " + map);
                     int result = (Integer) map.get("result");
                     LogUtils.writeLog(getContext(), LogUtils.TAG_GERAL, "result: " + result);

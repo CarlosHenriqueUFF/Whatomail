@@ -20,6 +20,15 @@
         android:layout_marginBottom="0dp"
         />
 
+    <CheckBox
+        android:id="@+id/check_controlado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/check_receita_controlada"
+        android:textSize="16sp"
+        android:layout_marginBottom="0dp"
+        />
+
     <TextView
         android:id="@+id/label_nome_cliente"
         android:layout_width="match_parent"
